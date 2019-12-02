@@ -40,6 +40,8 @@ flask run
 ### Manual Testing
 To test locally, you'll need ngrok and Postman. Install these if you don't already have them. 
 
+![](https://github.com/maximo/spam_classifer/blob/master/images/postman.png)
+
 1. Start ngrok. Make note of the URL it's running on. you'll need to specify it in Postman
 2. Start Postman
 3. Change the HTTP type to POST (see 1)

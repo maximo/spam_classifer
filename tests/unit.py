@@ -1,3 +1,5 @@
+# author: Rui Maximo
+
 import pytest
 from app import app
 
@@ -11,19 +13,22 @@ def client():
     yield client
     ctx.pop()
 
-def test_index(client):
-    valid_field = 'input'
-    value = 'This is content'
-    client.get("/").status_code == 200
+def test_valid_field(client):
+    data = {'input': 'this is content'}
+    response = client.post('/', json=data)
+    assert response.status_code == 200
 
 def test_invalid_field(client):
-    invalid_field = 'inputs'
-    value = 'This is content'
+    data = {'inputs': 'this is content'}
+    response = client.post('/', json=data)
+    assert response.status_code == 400
 
 def test_missing_field(client):
-    valid_field = ''
-    value = ''
+    data = {'': ''}
+    response = client.post('/', json=data)
+    assert response.status_code == 400
 
 def test_missing_value(client):
-    valid_field = 'input'
-    value = ''
+    data = {'input': ''}
+    response = client.post('/', json=data)
+    assert response.status_code == 400

@@ -35,6 +35,14 @@ this micro web-service uses Flask. Before starting it, you must run the followin
 export FLASK_APP=controller.py
 ```
 
+Alternatively, by using DIRENV this environment variable is automatically loaded when navigating to this folder. The file, .envrc, defines the environment variables used by flask. You must run the following command once:
+
+```
+direnv allow
+```
+
+(see below for instructions on how to install DIRENV)
+
 ### Run the web-service
 
 ```
@@ -62,3 +70,18 @@ To test locally, you'll need ngrok and Postman. Install these if you don't alrea
 ```
 ve/bin/pytest
 ```
+
+## Installing DIRENV
+To install DIRENV, run the following command:
+
+```
+pip install direnv or pip3 install direnv
+```
+
+Modify your shell profile (i.e. ~/.bash_profile) by adding the following:
+
+```
+eval "$(direnv hook bash)"
+```
+
+Restart your shell (i.e. Terminal window)
